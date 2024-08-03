@@ -13,4 +13,5 @@ This approach converts the number to a string and checks if the string is a pali
 
 ### Approach 3: Reversing the Number
 This approach reverses the number and checks if the reversed number is equal to the original number.
+<br>
 <strong>Note: Negative integers can never be palindrome so create special case for them.<strong>
