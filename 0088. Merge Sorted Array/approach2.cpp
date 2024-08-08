@@ -3,35 +3,27 @@ using namespace std;
 
 void merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
 {
-    vector<int> v;
-    int i = 0, j = 0;
-    while (i < m && j < n)
+    int i = m - 1;
+    int j = n - 1;
+    int k = m + n - 1;
+
+    while (i >= 0 && j >= 0)
     {
-        if (nums1[i] < nums2[j])
+        if (nums1[i] > nums2[j])
         {
-            v.push_back(nums1[i]);
-            i++;
+            nums1[k--] = nums1[i--];
         }
         else
         {
-            v.push_back(nums2[j]);
-            j++;
+            nums1[k--] = nums2[j--];
         }
     }
 
-    // if elements left in nums1
-    while (i < m)
-    {
-        v.push_back(nums1[i]);
-        i++;
-    }
+    // if elements left in num1, its okay as we need them there only
 
     // if elements left in nums2
-    while (j < n)
+    while (j >= 0)
     {
-        v.push_back(nums2[j]);
-        j++;
+        nums1[k--] = nums2[j--];
     }
-
-    nums1 = v;
 }
